@@ -55,3 +55,92 @@ Unlike CI, which focuses purely on code integration and testing, Continuous Deli
 ## Continuous Deployment
 
 Continuous Deployment goes a step further than Delivery by automating the final release step entirely. Teams use it to automatically push every change that passes all tests straight to the live production environment without any manual intervention.
+
+## CI-CD PIPELINE
+
+<img width="1798" height="875" alt="7fa3cc8b-268c-4b48-affb-ed95ef6379a0" src="https://github.com/user-attachments/assets/9fa9fece-4610-4fbb-a1d7-143ed73d6670" />
+
+# CI/CD Pipeline Explained (Beginner Friendly)
+
+Think of the CI/CD pipeline as an automatic factory for your code.
+
+## Step 1: Developer Pushes Code to GitHub
+
+👨‍💻 You write code on your computer and push it to GitHub.
+
+### Example
+
+```bash
+git add .
+git commit -m "Added login feature"
+git push origin main
+```
+
+➡️ This push starts the CI/CD pipeline automatically.
+
+---
+
+## Stage 1: Test ✅
+
+Before using the code, the pipeline checks whether everything is working.
+
+It may:
+
+- Install project dependencies.
+- Run unit tests.
+- Check for syntax or coding errors.
+
+**Goal:** Catch bugs early.
+
+If the tests fail, the pipeline stops here, and the developer fixes the issue.
+
+---
+
+## Stage 2: Build 🐳
+
+If all tests pass, the application is packaged into a Docker image.
+
+### What happens?
+
+- The application is built.
+- A Docker image is created.
+- The image is tagged (for example, `v1.0` or `latest`).
+
+**Goal:** Create a package that runs the same way on every machine.
+
+---
+
+## Stage 3: Deploy 🚀
+
+The Docker image is deployed to a **staging server**.
+
+A staging server is a practice environment that looks like production.
+
+Here the team checks:
+
+- Does the application start?
+- Can users log in?
+- Are all features working?
+
+If everything looks good, the application is ready for production later.
+
+---
+
+## CI/CD Pipeline Flow
+
+```text
+👨‍💻 Developer
+       │
+       ▼
+Push Code to GitHub
+       │
+       ▼
+✅ Test
+       │
+       ▼
+🐳 Build Docker Image
+       │
+       ▼
+🚀 Deploy to Staging Server
+```
+
